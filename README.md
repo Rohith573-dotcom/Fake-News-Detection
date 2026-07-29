@@ -1,11 +1,4 @@
-# Project 1 — AI-Powered Fake News Detection Using Text Classification
-
-**Summer Internship Program in AI & ML 2026**
-Indian Institute of Computing and Technology
-Affiliated: I-STEM, Office of the Principal Scientific Adviser to the Government of India
-
-**Submitted by:** K. Rohith  ·  **Enrollment No.:** 101537
-**Mentor:** Ashish Negi  ·  **Submission date:** 26 July 2026
+# AI-Powered Fake News Detection Using Text Classification
 
 A complete text-classification pipeline that labels a news article `REAL` or `FAKE`.
 Every component — tokeniser, stemmer, Bag-of-Words, TF-IDF, LSA embeddings, all four
