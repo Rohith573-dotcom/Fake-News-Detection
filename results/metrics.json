@@ -1,0 +1,147 @@
+{
+  "config": {
+    "max_features": 3000,
+    "min_df": 3,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "test_size": 0.2,
+    "random_state": 42,
+    "lsa_components": 150,
+    "knn_k": 7,
+    "rf_trees": 30,
+    "rf_depth": 10,
+    "nn_hidden": 96,
+    "nn_epochs": 35,
+    "cv_folds": 5
+  },
+  "dataset": {
+    "n": 6060,
+    "real": 2989,
+    "fake": 3071,
+    "n_train": 4847,
+    "n_test": 1213,
+    "vocab": 3000
+  },
+  "results": {
+    "KNN": {
+      "accuracy": 0.8697444352844188,
+      "precision": 0.922365988909427,
+      "recall": 0.8113821138211382,
+      "f1": 0.8633217993079584,
+      "specificity": 0.9297658862876255,
+      "roc_auc": 0.9526252821056639,
+      "fit_seconds": 0.047,
+      "predict_seconds": 0.358,
+      "confusion_matrix": [
+        [
+          556,
+          42
+        ],
+        [
+          116,
+          499
+        ]
+      ]
+    },
+    "Logistic Regression": {
+      "accuracy": 0.9134377576257213,
+      "precision": 0.9009433962264151,
+      "recall": 0.9317073170731708,
+      "f1": 0.9160671462829737,
+      "specificity": 0.8946488294314381,
+      "roc_auc": 0.9745683443456508,
+      "fit_seconds": 27.363,
+      "predict_seconds": 0.058,
+      "confusion_matrix": [
+        [
+          535,
+          63
+        ],
+        [
+          42,
+          573
+        ]
+      ]
+    },
+    "Random Forest": {
+      "accuracy": 0.8334707337180544,
+      "precision": 0.8068350668647846,
+      "recall": 0.8829268292682927,
+      "f1": 0.843167701863354,
+      "specificity": 0.782608695652174,
+      "roc_auc": 0.911605079261495,
+      "fit_seconds": 39.795,
+      "predict_seconds": 0.114,
+      "confusion_matrix": [
+        [
+          468,
+          130
+        ],
+        [
+          72,
+          543
+        ]
+      ]
+    },
+    "Neural Network": {
+      "accuracy": 0.9167353668590272,
+      "precision": 0.9066455696202531,
+      "recall": 0.9317073170731708,
+      "f1": 0.9190056134723336,
+      "specificity": 0.9013377926421404,
+      "roc_auc": 0.9728444408189901,
+      "fit_seconds": 1.242,
+      "predict_seconds": 0.002,
+      "confusion_matrix": [
+        [
+          539,
+          59
+        ],
+        [
+          42,
+          573
+        ]
+      ]
+    }
+  },
+  "cv_f1_mean": 0.9192553160654662,
+  "cv_f1_std": 0.008275718732312106,
+  "sklearn_reference": {
+    "KNN": 0.8689200329760923,
+    "LogReg": 0.9142621599340478,
+    "Random Forest": 0.8516075845012366,
+    "Neural Net": 0.9084913437757626
+  },
+  "best_model": "Neural Network",
+  "top_fake_terms": [
+    "october",
+    "november",
+    "article",
+    "hillary",
+    "us",
+    "election",
+    "share",
+    "oct",
+    "russia",
+    "via",
+    "wikileak",
+    "source"
+  ],
+  "top_real_terms": [
+    "said",
+    "republican",
+    "say",
+    "tuesday",
+    "candidat",
+    "obama",
+    "cruz",
+    "president",
+    "conservative",
+    "sen",
+    "gop",
+    "sunday"
+  ],
+  "lsa_variance": 0.9845487163557818
+}

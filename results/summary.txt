@@ -1,0 +1,85 @@
+==========================================================================
+AI-POWERED FAKE NEWS DETECTION USING TEXT CLASSIFICATION
+IICT Summer Internship 2026  |  Project 1
+==========================================================================
+[Week 1] Loaded data/train.csv  (Kaggle 'Fake and Real News' dataset)
+[Week 1] Dropped 0 null/duplicate rows -> 6060 articles
+[Week 1] Manual preprocessing of 6060 documents in 6.8s (stop-list size 148)
+[Week 2] Class balance          : {'REAL': 2989, 'FAKE': 3071}
+[Week 2] Tokens per article     : mean 441.9, median 349, max 10131
+[Week 2] Vocabulary size        : REAL 31622, FAKE 39467
+[Week 2] Top REAL terms         : ['said', 'trump', 'clinton', 'new', 'republican', 'one', 'say', 'president']
+[Week 2] Top FAKE terms         : ['clinton', 'trump', 'one', 'people', 'new', 'us', 'hillary', 'year']
+
+[Week 2] Split: 4847 train / 1213 test (stratified, test_size=0.2)
+[Week 2] Bag-of-Words matrix    : (4847, 3000), sparsity 93.0%
+[Week 2] TF-IDF matrix          : (4847, 3000), sparsity 93.0%
+[Week 2] LSA embeddings         : (4847, 150), variance retained 98.5%
+
+==========================================================================
+[Week 3] TRAINING FOUR FROM-SCRATCH CLASSIFIERS
+==========================================================================
+
+--- KNN ---
+  accuracy 0.8697 | precision 0.9224 | recall 0.8114 | F1 0.8633 | AUC 0.9526
+  fit 0.05s | predict 0.358s
+               precision    recall  f1-score   support
+
+REAL (0)           0.827     0.930     0.876       598
+FAKE (1)           0.922     0.811     0.863       615
+
+accuracy                               0.870      1213
+
+--- Logistic Regression ---
+  accuracy 0.9134 | precision 0.9009 | recall 0.9317 | F1 0.9161 | AUC 0.9746
+  fit 27.36s | predict 0.058s
+               precision    recall  f1-score   support
+
+REAL (0)           0.927     0.895     0.911       598
+FAKE (1)           0.901     0.932     0.916       615
+
+accuracy                               0.913      1213
+
+--- Random Forest ---
+  accuracy 0.8335 | precision 0.8068 | recall 0.8829 | F1 0.8432 | AUC 0.9116
+  fit 39.79s | predict 0.114s
+               precision    recall  f1-score   support
+
+REAL (0)           0.867     0.783     0.822       598
+FAKE (1)           0.807     0.883     0.843       615
+
+accuracy                               0.833      1213
+
+--- Neural Network ---
+  accuracy 0.9167 | precision 0.9066 | recall 0.9317 | F1 0.9190 | AUC 0.9728
+  fit 1.24s | predict 0.002s
+               precision    recall  f1-score   support
+
+REAL (0)           0.928     0.901     0.914       598
+FAKE (1)           0.907     0.932     0.919       615
+
+accuracy                               0.917      1213
+
+==========================================================================
+[Week 4] EVALUATION, VISUALISATION AND COMPARISON
+==========================================================================
+
+[Week 4] Strongest FAKE indicators : ['october', 'november', 'article', 'hillary', 'us', 'election', 'share', 'oct']
+[Week 4] Strongest REAL indicators : ['said', 'republican', 'say', 'tuesday', 'candidat', 'obama', 'cruz', 'president']
+[Week 4] Random-forest top splits  : ['republican', 'said', 'also', 'october', 'say', 'hillary', 'election', 'gop', 'cruz', 'sen']
+
+[Week 4] 5-fold CV F1 (Logistic Regression): 0.9193 +/- 0.0083   folds=[0.9141, 0.9292, 0.9262, 0.9205, 0.9063]
+
+[Cross-check] scikit-learn reference accuracies
+  KNN             0.8689
+  LogReg          0.9143
+  Random Forest   0.8516
+  Neural Net      0.9085
+
+[Week 4] BEST MODEL BY F1 : Neural Network (F1 = 0.9190, accuracy = 0.9167)
+
+                     accuracy precision    recall        f1 specificity   roc_auc fit_seconds predict_seconds
+KNN                  0.869744  0.922366  0.811382  0.863322    0.929766  0.952625       0.047           0.358
+Logistic Regression  0.913438  0.900943  0.931707  0.916067    0.894649  0.974568      27.363           0.058
+Random Forest        0.833471  0.806835  0.882927  0.843168    0.782609  0.911605      39.795           0.114
+Neural Network       0.916735  0.906646  0.931707  0.919006    0.901338  0.972844       1.242           0.002
