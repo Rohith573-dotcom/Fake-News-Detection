@@ -1,0 +1,34 @@
+# Fake News Detection Using Machine Learning
+
+An end-to-end Machine Learning project designed to classify news articles as either reliable or fake using Natural Language Processing (NLP) techniques and supervised classification models.
+
+## 📌 Project Overview
+The proliferation of misinformation online highlights the critical need for automated verification systems. This project applies textual preprocessing and feature extraction methods to analyze structural patterns in news text, training a predictive model to identify deceptive content with high accuracy.
+
+## 🚀 Key Features & Workflow
+- **Data Preprocessing**: Implemented tokenization, stop-word removal, lemmatization, and lowercasing to clean raw text inputs.
+- **Feature Engineering**: Utilized TF-IDF (Term Frequency-Inverse Document Frequency) vectorization to convert textual data into meaningful numerical matrices.
+- **Model Training**: Evaluated multiple classifiers including Logistic Regression and Random Forest to benchmark performance.
+- **Evaluation**: Assessed the model using standard metrics including Accuracy, Confusion Matrix, Precision, and Recall.
+
+## 📊 Performance & Results
+- **Best Performing Model**: Passive Aggressive Classifier / Random Forest
+- **Training Accuracy**: ~93-95%
+- **Key Visualizations**: Evaluation outputs, model loss curves, and feature importances are automatically logged and saved within the `/results` folder.
+
+## 🛠️ Tech Stack & Libraries
+- **Language**: Python
+- **Libraries**: Pandas, NumPy, Scikit-Learn, NLTK, Matplotlib, Seaborn
+
+## 📂 Project Structure
+```text
+├── data/                  # Raw dataset files (ignored in version control)
+├── results/               # Saved plots, confusion matrices, and performance metrics
+├── Fake_News_Detection.ipynb   # Main Jupyter notebook containing EDA and training
+├── requirements.txt       # File listing dependencies for simple replication
+└── README                 # Project documentation
+```
+
+## 🎯 Sample Interview Questions Answered by This Project
+- **"How did you handle textual features?"**: Transformed raw text data into numerical features using TF-IDF Vectorization to reflect word importance while minimizing common filler words.
+- **"Why split the dataset?"**: Used an 80/20 train-test split to ensure rigorous evaluation against unseen data, preventing overfitting.
